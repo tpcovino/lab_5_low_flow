@@ -7,7 +7,9 @@ output:
 ---
 
 
-# Low Flow Analysis
+# Low Flow Analysis (12 pts)
+
+In this lab I am giving you most of the code. Your task will be to use that code to analyze low flows at the Gallatin Gateway gage and answer the summary questions at the end of this markdown. For you deliverable submit your answers to the summary questions in a word doc. 
 
 **Reading:** 
 [Definitions and characteristics of low flows](https://www.epa.gov/ceam/definition-and-characteristics-low-flows){target="_blank"} in EPA Environmental Modeling Community of Practice
@@ -290,7 +292,9 @@ So, our 7Q10 flow in cfs for this gage is....
 PearsonxQy
 ```
 
-## Summary questions
+## Deliverable - Summary questions (12 pts)
+
+- submit your answers to these questions as a word doc on D2L. 
 
 ### Question 1 (5 pts)
 - Interpret your plots of minQ vs return interval and minQ vs exceedence probability. What does each tell you? Using these figures estimate the probability of having a year with minimum annual flow ~ 250 cfs. What return interval would you estimate for a year with miminum annual flow ~ 250 cfs? 
@@ -299,5 +303,5 @@ PearsonxQy
 - what is your 7Q10?
 - In the context of low flows, describe what the 7Q10 is and how it might be used in water resource management.
 
-### Question 3 ()
+### Question 3 (5)
 - You are a water resource planner for the city of Bozeman. Part of your job is to monitor low flows. You have noticed that the 7-day moving average has dropped below the 7Q10. What does this tell you? And what recommendations would you make to the city regarding water use? 
