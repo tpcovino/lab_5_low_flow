@@ -7,7 +7,7 @@ output:
 ---
 
 
-# Low Flow Analysis (12 pts)
+# Low Flow Analysis (15 pts)
 
 In this lab I am giving you most of the code. Your task will be to use that code to analyze low flows at the Gallatin Gateway gage and answer the summary questions at the end of this markdown. For you deliverable submit your answers to the summary questions in a word doc. 
 
@@ -16,12 +16,11 @@ In this lab I am giving you most of the code. Your task will be to use that code
 
 
 *Load packages for analysis. zoo will allow us to easily perform rolling means, and moments will allow easy calculation of skewness.*
-```{r, warning=FALSE, results='hide',message=FALSE}
+```{r, warning=FALSE, results='hide', message=FALSE}
 
 library(zoo)
 library(tidyverse)
 library(dataRetrieval)
-library(lubridate)
 library(moments)
 library(patchwork)
 
@@ -38,7 +37,7 @@ We will focus on hydrologic methods. You will most frequently see low flow stats
 
 "The 1Q10 and 7Q10 are both hydrologically based design flows. The 1Q10 is the lowest 1-day average flow that occurs (on average) once every 10 years. The 7Q10 is the lowest 7-day average flow that occurs (on average) once every 10 years." -EPA <https://www.epa.gov/ceam/definition-and-characteristics-low-flows#1Q10>
 
-So the first number, **the 7 in 7Q10** is how many days we will average flow over to calculate the statistic. Why does does this matte? Why not always use a 1 day flow record?
+So the first number, **the 7 in 7Q10** is how many days we will average flow over to calculate the statistic. Why does does this matter? Why not always use a 1 day flow record?
 
 Then the second number is the return-interval of the flow, or the probability that a flow of that magnitude or lower will occur any given year. **The 10 in 7Q10** means there is a 10 percent chance that the associated 7-day average flow or below will occur in any given year. Another way of saying this is that a flow of that magnitude or below occurs on average once every 10 years. **However** expressing it this way can be dangerous, especially with the opposite type of extreme flows: Floods. Why do you think it could be dangerous to say a flow of this magnitude or below will happen on average once every 10 years?
 
@@ -59,8 +58,8 @@ In the code below you will see that I have added a line of code to add a water y
 
 ```{r}
 site_no <- "06043500"
-startDate <- as.Date("1990-10-01")
-endDate <- as.Date("2022-10-01")
+startDate <- as_date("1990-10-01")
+endDate <- as_date("2022-10-01")
 parameter <- "00060"
 
 Qdat <- readNWISdv(site = site_no, parameterCd = parameter, startDate = startDate, endDate = endDate) %>%
@@ -296,12 +295,12 @@ PearsonxQy
 
 - submit your answers to these questions as a word doc on D2L. 
 
-### Question 1 (5 pts)
+### Question 1 (6 pts)
 - Interpret your plots of minQ vs return interval and minQ vs exceedence probability. What does each tell you? Using these figures estimate the probability of having a year with minimum annual flow ~ 250 cfs. What return interval would you estimate for a year with miminum annual flow ~ 250 cfs? 
 
-### Question 2 (2 pts)
+### Question 2 (3 pts)
 - what is your 7Q10?
 - In the context of low flows, describe what the 7Q10 is and how it might be used in water resource management.
 
-### Question 3 (5)
+### Question 3 (6 pts)
 - You are a water resource planner for the city of Bozeman. Part of your job is to monitor low flows. You have noticed that the 7-day moving average has dropped below the 7Q10. What does this tell you? And what recommendations would you make to the city regarding water use? 
